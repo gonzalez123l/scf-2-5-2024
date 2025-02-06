@@ -1,0 +1,19 @@
+.box {
+    display: flex;
+    align-items: stretch;
+}
+
+.1 {
+    width: 100px;
+    height: 100px;
+    background-color: rgb(252, 102, 102);
+    border-radius: 5px;
+
+}
+.2 {
+    width: 100px;
+    height: 100px;
+    background-color: rgb(252, 102, 102);
+    border-radius: 5px;
+
+}
