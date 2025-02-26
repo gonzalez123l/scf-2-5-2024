@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Permanent+Marker&display=swap');
+
+body {
+    font-family: 'Bangers', cursive;
+    background: #f5f5f5;
+    color: #222;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Comic Book Halftone Background */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle at top left, rgba(255, 0, 0, 0.2) 10%, transparent 40%),
+                      radial-gradient(circle at bottom right, rgba(0, 0, 255, 0.2) 10%, transparent 40%);
+    z-index: -1;
+}
+
+/* General Comic Panel Styling */
+#StartScreen, #QuizScreen, #GameOverScreen {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 80%;
+    height: 55%;
+    max-height: 55%;
+    background: white;
+    padding: 2%;
+    border-radius: 2%;
+    box-shadow: 0.5vw 0.5vw 0px #222, 1vw 1vw 0px #ffcc00;
+    border: 5px solid black;
+}
+
+/* Make Start Screen visible initially */
+/* Start Screen Header - Higher Contrast */
+#StartScreen h2 {
+    color: #ffcc00; /* Bright comic book yellow */
+    background: #0000ff; /* Deep blue background */
+    text-shadow:  
+        -4px -4px 0px black,  
+         4px -4px 0px black,  
+        -4px  4px 0px black,  
+         4px  4px 0px black,  
+         6px  6px 5px rgba(0, 0, 0, 0.7); /* More depth */
+    padding: 2% 4%;
+    border-radius: 5px;
+    font-size: 3.5vw; /* Bigger text for better visibility */
+    border: 4px solid black;
+}
+
+
+/* Comic-Style Buttons */
+button {
+    font-family: 'Permanent Marker', cursive;
+    background: #ffcc00;
+    border: 4px solid black;
+    color: black;
+    padding: 2% 5%;
+    font-size: 1.5vw;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: 0.3s ease-in-out;
+    border-radius: 5%;
+    box-shadow: 3px 3px 0px black;
+}
+
+button:hover {
+    background: #ff0000;
+    color: white;
+    box-shadow: 5px 5px 0px black;
+    transform: scale(1.1) rotate(-2deg);
+}
+
+/* Exit Button */
+#ExitButton {
+    position: fixed;
+    top: 5%;
+    right: 5%;
+    padding: 1.5% 3%;
+    font-size: 1vw;
+    background: red;
+    color: white;
+    border: 4px solid black;
+    cursor: pointer;
+    text-transform: uppercase;
+    border-radius: 5%;
+    box-shadow: 3px 3px 0px black;
+}
+
+#ExitButton:hover {
+    background: black;
+    color: white;
+    transform: scale(1.1);
+}
+
+/* Comic-Style Quiz Questions */
+#QuestionContainer {
+    font-size: 2vw;
+    padding: 2%;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 2%;
+    border: 4px solid black;
+    box-shadow: 3px 3px 0px black, 5px 5px 0px yellow;
+}
+
+/* Comic Panel Speech Bubble Effect */
+#Question {
+    display: inline-block;
+    background: white;
+    padding: 1%;
+    border: 3px solid black;
+    border-radius: 10px;
+    position: relative;
+}
+
+#Question::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -20px;
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 20px solid black;
+}
+
+/* Answer List */
+#Answers {
+    list-style: none;
+    padding: 0;
+}
+
+#Answers li {
+    font-family: 'Permanent Marker', cursive;
+    background: white;
+    border: 3px solid black;
+    padding: 2%;
+    margin: 2%;
+    border-radius: 5%;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    box-shadow: 3px 3px 0px black;
+    color: black;
+    text-align: center;
+}
+
+#Answers li:hover {
+    background: yellow;
+    transform: scale(1.1) rotate(-3deg);
+    box-shadow: 5px 5px 0px black;
+}
+
+/* Game Over Screen */
+#GameOverScreen h2 {
+    color: white;
+    background: black;
+    text-shadow:  
+        -3px -3px 0px red,  
+         3px -3px 0px red,  
+        -3px  3px 0px red,  
+         3px  3px 0px red;
+    padding: 1% 3%;
+    border-radius: 5px;
+}
+
+/* Comic Book Title Styling */
+h2 {
+    font-size: 3vw;
+    color: #ffcc00; /* Bright comic book yellow */
+    text-shadow:  
+        -3px -3px 0px black,  
+         3px -3px 0px black,  
+        -3px  3px 0px black,  
+         3px  3px 0px black,  
+         6px  6px 5px rgba(0, 0, 0, 0.5); /* Adds depth */
+    border-bottom: 4px solid black;
+    display: inline-block;
+    padding-bottom: 5px;
+    background: linear-gradient(90deg, #ff0000, #ffcc00, #ff0000);
+    padding: 1% 3%;
+    border-radius: 5px;
+}
+
+/* Add a subtle halftone effect */
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://www.transparenttextures.com/patterns/halftone.png');
+    opacity: 0.2;
+    pointer-events: none;
+}
